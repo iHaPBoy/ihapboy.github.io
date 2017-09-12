@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="HaPBoy's Notes" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="这段时间经常用到 Flexbox 弹性盒模型，十分简洁好用，不需要 float, position 等属性即可完成复杂的页面布局。若无需兼容 IE 或只在移动端开发，推荐使用 Flex 布局。 Flexbox 布局Flexbox 是一种布置元素的布局模式，适应不同的屏幕尺寸，弹性盒子模型是对块模型的改进，flex容器的边缘也不会与其内容的边缘折叠。 Flex 容器默认存在两条轴，分别是水平主轴(m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3 Flexbox 知识点整理">
+<meta property="og:url" content="https://ihapboy.com/2017/09/12/css3-flexbox/index.html">
+<meta property="og:site_name" content="HaPBoy&#39;s Notes">
+<meta property="og:description" content="这段时间经常用到 Flexbox 弹性盒模型，十分简洁好用，不需要 float, position 等属性即可完成复杂的页面布局。若无需兼容 IE 或只在移动端开发，推荐使用 Flex 布局。 Flexbox 布局Flexbox 是一种布置元素的布局模式，适应不同的屏幕尺寸，弹性盒子模型是对块模型的改进，flex容器的边缘也不会与其内容的边缘折叠。 Flex 容器默认存在两条轴，分别是水平主轴(m">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-12T08:10:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3 Flexbox 知识点整理">
+<meta name="twitter:description" content="这段时间经常用到 Flexbox 弹性盒模型，十分简洁好用，不需要 float, position 等属性即可完成复杂的页面布局。若无需兼容 IE 或只在移动端开发，推荐使用 Flex 布局。 Flexbox 布局Flexbox 是一种布置元素的布局模式，适应不同的屏幕尺寸，弹性盒子模型是对块模型的改进，flex容器的边缘也不会与其内容的边缘折叠。 Flex 容器默认存在两条轴，分别是水平主轴(m">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ihapboy.com/2017/09/12/css3-flexbox/"/>
+
+
+
+
+
+  <title>CSS3 Flexbox 知识点整理 | HaPBoy's Notes</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HaPBoy's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ihapboy.com/2017/09/12/css3-flexbox/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HaPBoy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HaPBoy's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSS3 Flexbox 知识点整理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-12T15:45:04+08:00">
+                2017-09-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这段时间经常用到 Flexbox 弹性盒模型，十分简洁好用，不需要 float, position 等属性即可完成复杂的页面布局。若无需兼容 IE 或只在移动端开发，推荐使用 Flex 布局。</p>
+<h2 id="Flexbox-布局"><a href="#Flexbox-布局" class="headerlink" title="Flexbox 布局"></a>Flexbox 布局</h2><p>Flexbox 是一种布置元素的布局模式，适应不同的屏幕尺寸，弹性盒子模型是对块模型的改进，flex容器的边缘也不会与其内容的边缘折叠。</p>
+<p>Flex 容器默认存在两条轴，分别是水平主轴(main axis) 和 垂直的交叉轴(或侧轴)(cross axis)，可以通过修改 <code>flex-direction</code> 来改变主轴和交叉轴。</p>
+<p>Flex 容器(Flex container): 包含着弹性项目的父元素。通过设置 <code>display: flex | inline-flex</code> 定义弹性容器。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">    <span class="attribute">display</span>: flex | inline-flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Flex-容器的-6-个属性"><a href="#Flex-容器的-6-个属性" class="headerlink" title="Flex 容器的 6 个属性"></a>Flex 容器的 6 个属性</h2><ol>
+<li><p><code>flex-direction</code> 确立主轴。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">    flex-direction: row | row-reverse | column | column-reverse; // 默认值 row</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>row/row-reverse: 水平方向从左到右/从右到左<br>column/column-reverse: 垂直方向从上到下/从下到上</p>
+</li>
+<li><p><code>flex-wrap</code> 控制侧轴的方向和新行排列的方向，即弹性项目单行、多行排布。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">    flex-wrap: nowrap | wrap | wrap-reverse; // 默认值 nowrap</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>nowrap(默认值): 不换行<br>wrap/wrap-reverse: 项目主轴总尺寸超出容器时换行，第一行在上方/换行，第一行在下方</p>
+</li>
+<li><p><code>flex-flow</code> 是 <code>flex-direction</code> 和 <code>flex-wrap</code> 的简写，决定弹性项目如何排布。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">    flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;; // 默认值 row nowrap</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>justify-content</code> 定义弹性项目沿主轴如何排布。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">    justify-content: flex-start | flex-end | center | space-between | space-around; // 默认值 flex-start</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>flex-start(默认值): 向主轴起始位置靠齐; flex-end: 向主轴结束位置靠齐; center: 向主轴中间位置靠齐;<br>space-between: 两端对齐，项目之间等距;<br>space-around: 每个项目两侧的间隔相等，项目之间的间隔比项目与边缘的间隔大一倍.</p>
+</li>
+<li><p><code>align-items</code> 定义弹性项目沿侧轴如何排布。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">    align-items: flex-start | flex-end | center | baseline | stretch; // 默认值 stretch</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>stretch(默认值): 项目未设置高(宽)度或者设为 auto，将在侧轴拉伸填充整个容器;<br>flex-start: 向侧轴起始位置靠齐; flex-end: 向侧轴结束位置靠齐; center: 向侧轴中间位置靠齐;<br>baseline: 根据项目的基线对齐.</p>
+</li>
+<li><p><code>align-content</code> 定义多个侧轴的空间分配方式，只有一根侧轴不起作用。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">    align-content: flex-start | flex-end | center | space-between | space-around | stretch; // 默认值 stretch</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>stretch(默认值): 项目未设置高(宽)度或者设为 auto，将在侧轴拉伸填充整个容器;<br>flex-start: 向侧轴起始位置靠齐; flex-end: 向侧轴结束位置靠齐; center: 向侧轴中间位置靠齐;<br>space-between: 两端对齐，项目之间等距;<br>space-around: 每个项目两侧的间隔相等，项目之间的间隔比项目与边缘的间隔大一倍.</p>
+</li>
+</ol>
+<h2 id="Flex-项目的-6-个属性"><a href="#Flex-项目的-6-个属性" class="headerlink" title="Flex 项目的 6 个属性"></a>Flex 项目的 6 个属性</h2><ol>
+<li><p><code>order</code> 规定了弹性容器中的可伸缩项目在布局时的顺序，数值越小，排列越靠前，默认值为 0。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.item</span> &#123;</div><div class="line">    order: &lt;integer&gt;; // 默认值 0</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>flex-basis</code> 伸缩基础，在进行计算剩余空间或超出空间前，给伸缩项目重新设置一个宽度，然后再计算。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.item</span> &#123;</div><div class="line">    flex-basis: &lt;length&gt; | auto; // 默认值 auto</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>flex-grow</code> 当伸缩项目在主轴方向的总宽度 &lt; 伸缩容器，伸缩项目根据<strong>扩展因素</strong>分配伸缩容器的剩余空间。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.item</span> &#123;</div><div class="line">    flex-grow: &lt;number&gt;; // 默认值 0，即存在剩余空间不放大</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>flex-shrink</code> 当伸缩项目在主轴方向的总宽度 &gt; 伸缩容器，伸缩项目根据<strong>缩小因素</strong>分配总宽度超出伸缩容器的空间。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.item</span> &#123;</div><div class="line">    flex-shrink: &lt;number&gt;; // 默认值 1，即如果空间不足，该项目将缩小，负值对该属性无效。</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>flex</code> flex-grow, flex-shrink 和 flex-basis 的简写</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.item</span> &#123;</div><div class="line">    <span class="attribute">flex</span>: none | [ &lt;<span class="string">'flex-grow'</span>&gt; &lt;<span class="string">'flex-shrink'</span>&gt;? || &lt;<span class="string">'flex-basis'</span>&gt; ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>initial(默认值): <code>flex: 0 1 auto</code> 即 flex-grow: 0; flex-shrink: 1; flex-basis: auto;<br>none: <code>flex: 0 0 auto</code> 元素会根据自身宽高来设置尺寸。它是完全非弹性的：既不会缩短，也不会伸长来适应 flex 容器;<br>auto: <code>flex: 1 1 auto</code>;<br><code>&lt;number&gt;</code>: <code>flex: number 1 0%</code>;<br><code>&lt;width&gt;</code>: <code>flex: 1 1 width</code> 例如 <code>flex: 0% =&gt; flex: 1 1 0%</code>, <code>flex: 10px =&gt; flex: 1 1 10px</code>.</p>
+<p><strong>拉伸后弹性项目宽度计算</strong></p>
+<blockquote>
+<p>弹性项目扩展宽度 = (容器宽度 - 项目宽度或项目设置的 flex-basis 总和) * 对应的 flex-grow 比例<br>拉伸后弹性项目宽度 = 原弹性项目宽度 + 扩展宽度</p>
+</blockquote>
+<p><strong>压缩后弹性项目宽度计算</strong></p>
+<blockquote>
+<p>弹性项目缩小宽度 = (项目宽度或项目设置的 flex-basis 总和 - 容器宽度) <em> <em>*(对应的 flex-shrink 项目宽度或项目设置的 flex-basis 加权比例)</em></em><br>压缩后弹性项目宽度 = 原弹性项目宽度 - 缩小宽度</p>
+</blockquote>
+<p><strong>注意：使用缩写属性会留下一些陷阱，导致表现的结果不尽如人意。</strong></p>
+<blockquote>
+<p>例如 flex: 1 与 flex-grow: 1<br>flex: 1      =&gt; flex: 1 1 0%<br>flex-grow: 1 =&gt; flex: 1 1 auto<br>两者的区别在于 flex-basis 的值不同。flex: 1 为项目宽度重新设置了宽度为0，所以可分配空间为整个容器。</p>
+</blockquote>
+</li>
+<li><p><code>align-self</code> 定义单个弹性项目在侧轴上应当如何对齐，这个定义会覆盖由 align-items 所确立的默认值。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.item</span> &#123;</div><div class="line">     <span class="attribute">align-self</span>: auto | flex-start | flex-end | center | baseline | stretch;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="需要注意的-Flexbox-特性-Bug"><a href="#需要注意的-Flexbox-特性-Bug" class="headerlink" title="需要注意的 Flexbox 特性 / Bug"></a>需要注意的 Flexbox 特性 / Bug</h2><ol>
+<li><p>无效属性</p>
+<ul>
+<li><code>float</code> 和 <code>clear</code> 在弹性项目无效</li>
+<li><code>vertical-align</code> 在弹性项目无效</li>
+<li><code>column-*</code> 在弹性容器无效</li>
+<li><code>::first-line</code> 和 <code>::first-letter</code> 在弹性容器无效</li>
+</ul>
+</li>
+<li><p>弹性容器中的 非空字符文本节点 也是弹性项目</p>
+</li>
+<li><p><code>margin</code> 折叠</p>
+<ul>
+<li>弹性容器和弹性项目的 <code>margin</code> 不会折叠</li>
+<li>弹性项目间的 <code>margin</code> 不会折叠</li>
+</ul>
+</li>
+<li><p>旧版 Flexbox 的 BUG</p>
+<p>弹性项目为行内元素要加 <code>display: block</code> 或 <code>display: flex</code> 属性</p>
+</li>
+</ol>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout" target="_blank" rel="external">CSS 弹性盒子布局 - MDN</a><br><a href="https://zhuanlan.zhihu.com/p/25303493" target="_blank" rel="external">30 分钟学会 Flex 布局 - 林东洲</a><br><a href="https://segmentfault.com/a/1190000009932882" target="_blank" rel="external">Flexbox布局的正确使用姿势 - Leechikit</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.jpg"
+              alt="HaPBoy" />
+          
+            <p class="site-author-name" itemprop="name">HaPBoy</p>
+            <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/iHaPBoy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:ihapboy@gmail.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Flexbox-布局"><span class="nav-number">1.</span> <span class="nav-text">Flexbox 布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flex-容器的-6-个属性"><span class="nav-number">2.</span> <span class="nav-text">Flex 容器的 6 个属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flex-项目的-6-个属性"><span class="nav-number">3.</span> <span class="nav-text">Flex 项目的 6 个属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需要注意的-Flexbox-特性-Bug"><span class="nav-number">4.</span> <span class="nav-text">需要注意的 Flexbox 特性 / Bug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">5.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HaPBoy</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
