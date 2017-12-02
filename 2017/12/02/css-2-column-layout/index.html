@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -45,38 +45,27 @@
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
 
 
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.3" color="#222">
+
+
+
 
 
   <meta name="keywords" content="CSS,布局,Flexbox," />
@@ -92,11 +81,6 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
-
-
-
-
 
 
 <meta name="description" content="CSS 布局是前端开发的一个重要内容，在 CSS2.1 之前没有出现真正意义上的布局属性，直到 CSS3 才出现了如 Flex、Grid 等布局属性。本文总结了目前主流的两栏布局方法。  注意：本文中涉及 float 的布局均未对父元素进行清除浮动，在实际使用中需要在父容器清除浮动。（本文不讨论清除浮动的方法）   绝对定位法 absolute + marginHTML123456&amp;lt;div">
@@ -108,7 +92,7 @@
 <meta property="og:description" content="CSS 布局是前端开发的一个重要内容，在 CSS2.1 之前没有出现真正意义上的布局属性，直到 CSS3 才出现了如 Flex、Grid 等布局属性。本文总结了目前主流的两栏布局方法。  注意：本文中涉及 float 的布局均未对父元素进行清除浮动，在实际使用中需要在父容器清除浮动。（本文不讨论清除浮动的方法）   绝对定位法 absolute + marginHTML123456&amp;lt;div">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ihapboy.com/images/css-multi-column-layout/2-column-layout.png">
-<meta property="og:updated_time" content="2017-12-02T14:18:20.575Z">
+<meta property="og:updated_time" content="2017-12-02T15:22:20.821Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 两栏布局方法总结">
 <meta name="twitter:description" content="CSS 布局是前端开发的一个重要内容，在 CSS2.1 之前没有出现真正意义上的布局属性，直到 CSS3 才出现了如 Flex、Grid 等布局属性。本文总结了目前主流的两栏布局方法。  注意：本文中涉及 float 的布局均未对父元素进行清除浮动，在实际使用中需要在父容器清除浮动。（本文不讨论清除浮动的方法）   绝对定位法 absolute + marginHTML123456&amp;lt;div">
@@ -120,12 +104,12 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
-    version: '5.1.2',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -153,15 +137,6 @@
 
 
 
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-106125865-1', 'auto');
-  ga('send', 'pageview');
-</script>
 
 
 
@@ -349,25 +324,26 @@
 <p><img src="/images/css-multi-column-layout/2-column-layout.png" alt="两栏布局"></p>
 <h2 id="绝对定位法-absolute-margin"><a href="#绝对定位法-absolute-margin" class="headerlink" title="绝对定位法 absolute + margin"></a>绝对定位法 absolute + margin</h2><h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hd"</span>&gt;</span>Header<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bd"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aside"</span>&gt;</span>侧边栏 固定宽度<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span>主内容栏 自适应宽度<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ft"</span>&gt;</span>Footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.aside</span> &#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.main</span> &#123;</div><div class="line">  <span class="attribute">margin-left</span>: <span class="number">210px</span>; <span class="comment">/* 10px 列间隙 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>DEMO1</code>：<a href="https://ihapboy.github.io/front-end-lab/css-multi-column-layout/2-column-layout/absolute-margin.html" target="_blank" rel="noopener">绝对定位法 absolute + margin 两栏布局</a></p>
+<p><code>DEMO1</code>：<a href="https://ihapboy.github.io/front-end-lab/css-multi-column-layout/2-column-layout/absolute-margin.html" target="_blank" rel="external">绝对定位法 absolute + margin 两栏布局</a></p>
 <p><strong>特点：</strong>1. 在不修改 <code>HTML</code> 的情况下，只需要修改 CSS 即可<code>支持任意调整列顺序</code>。2. <code>支持主内容优先显示</code>，只需将主内容的 <code>HTML</code> 放置在前即可。<br><strong>缺陷：</strong>绝对定位 <code>absoulte</code> 是定位流，会脱离常规流，不影响上下文排版，无法撑开父元素高度。<br><strong>结论：</strong>在内容量不可控的场景，不推荐使用该方式。</p>
 <h2 id="浮动法-float-margin"><a href="#浮动法-float-margin" class="headerlink" title="浮动法 float + margin"></a>浮动法 float + margin</h2><h3 id="HTML-1"><a href="#HTML-1" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hd"</span>&gt;</span>Header<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bd clearfix"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aside"</span>&gt;</span>侧边栏 固定宽度<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span>主内容栏 自适应宽度<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ft"</span>&gt;</span>Footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="CSS-1"><a href="#CSS-1" class="headerlink" title="CSS"></a>CSS</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.aside</span> &#123;</div><div class="line">  <span class="attribute">float</span>: left;</div><div class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.main</span> &#123;</div><div class="line">  <span class="attribute">margin-left</span>: <span class="number">210px</span>; <span class="comment">/* 10px 列间隙 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>DEMO2</code>：<a href="https://ihapboy.github.io/front-end-lab/css-multi-column-layout/2-column-layout/float-margin.html" target="_blank" rel="noopener">浮动法 float + margin 两栏布局</a></p>
-<p><strong>特点：</strong>1. 在不修改 <code>HTML</code> 的情况下，只需要修改 CSS 即可<code>支持任意调整列顺序</code>。<br><strong>缺陷：</strong>1. <code>不支持主内容优先显示</code>。2. 不兼容IE6，<code>.main</code> 内部第一个元素存在清除浮动时，会发生 <code>.main</code> 掉下去的情况。3. <code>.main</code> 中存在清除浮动 <code>clear: both</code> 属性，样式会出错，<code>DEMO3</code>：<a href="https://ihapboy.github.io/front-end-lab/css-multi-column-layout/2-column-layout/float-margin-clear-bug.html" target="_blank" rel="noopener">浮动法 float + margin 两栏布局 clear: both BUG</a>。<br><strong>结论：</strong>若主内容栏包含需要清除浮动之类的元素，不适合使用该方式。</p>
+<p><code>DEMO2</code>：<a href="https://ihapboy.github.io/front-end-lab/css-multi-column-layout/2-column-layout/float-margin.html" target="_blank" rel="external">浮动法 float + margin 两栏布局</a></p>
+<p><strong>特点：</strong>1. 在不修改 <code>HTML</code> 的情况下，只需要修改 CSS 即可<code>支持任意调整列顺序</code>。<br><strong>缺陷：</strong>1. <code>不支持主内容优先显示</code>。2. 不兼容IE6，<code>.main</code> 内部第一个元素存在清除浮动时，会发生 <code>.main</code> 掉下去的情况。3. <code>.main</code> 中存在清除浮动 <code>clear: both</code> 属性，样式会出错，<code>DEMO3</code>：<a href="https://ihapboy.github.io/front-end-lab/css-multi-column-layout/2-column-layout/float-margin-clear-bug.html" target="_blank" rel="external">浮动法 float + margin 两栏布局 clear: both BUG</a>。<br><strong>结论：</strong>若主内容栏包含需要清除浮动之类的元素，不适合使用该方式。</p>
 <h2 id="浮动法改进版一-float-margin-wrap-双标签"><a href="#浮动法改进版一-float-margin-wrap-双标签" class="headerlink" title="浮动法改进版一 float + margin + wrap 双标签"></a>浮动法改进版一 float + margin + wrap 双标签</h2><h3 id="HTML-2"><a href="#HTML-2" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hd"</span>&gt;</span>Header<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bd clearfix"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aside"</span>&gt;</span>侧边栏 固定宽度<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main-wrap"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span>主内容栏 自适应宽度<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ft"</span>&gt;</span>Footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="CSS-2"><a href="#CSS-2" class="headerlink" title="CSS"></a>CSS</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.aside</span> &#123;</div><div class="line">  <span class="attribute">float</span>: left;</div><div class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">  <span class="attribute">position</span>: relative; <span class="comment">/* 提升侧边栏层级 */</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.main-wrap</span> &#123;</div><div class="line">  <span class="attribute">float</span>: right;</div><div class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">  <span class="attribute">margin-left</span>: -<span class="number">200px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.main</span> &#123;</div><div class="line">  <span class="attribute">margin-left</span>: <span class="number">210px</span>; <span class="comment">/* 10px 列间隙 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>DEMO4</code>：<a href="https://ihapboy.github.io/front-end-lab/css-multi-column-layout/2-column-layout/float-margin-wrap.html" target="_blank" rel="noopener">浮动法改进版一 float + margin + wrap 双标签 两栏布局</a></p>
+<p><code>DEMO4</code>：<a href="https://ihapboy.github.io/front-end-lab/css-multi-column-layout/2-column-layout/float-margin-wrap.html" target="_blank" rel="external">浮动法改进版一 float + margin + wrap 双标签 两栏布局</a></p>
 <p><strong>特点：</strong>1. 在不修改 <code>HTML</code> 的情况下，只需要修改 CSS 即可<code>支持任意调整列顺序</code>。2. <code>支持主内容优先显示</code>，只需将主内容的 <code>HTML</code> 放置在前即可。3.兼容性好，兼容所有浏览器。<br><strong>缺陷：</strong>结构增加，样式复杂。<br><strong>结论：</strong>推荐使用该方法，除了结构复杂没有其他明显缺陷。</p>
 <h2 id="浮动法改进版二-float-overflow"><a href="#浮动法改进版二-float-overflow" class="headerlink" title="浮动法改进版二 float + overflow"></a>浮动法改进版二 float + overflow</h2><h3 id="HTML-3"><a href="#HTML-3" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hd"</span>&gt;</span>Header<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bd clearfix"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aside"</span>&gt;</span>侧边栏 固定宽度<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span>主内容栏 自适应宽度<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ft"</span>&gt;</span>Footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="CSS-3"><a href="#CSS-3" class="headerlink" title="CSS"></a>CSS</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.aside</span> &#123;</div><div class="line">  <span class="attribute">float</span>: left;</div><div class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">  <span class="attribute">margin-right</span>: <span class="number">10px</span>; <span class="comment">/* 10px 列间隙 */</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.main</span> &#123;</div><div class="line">  <span class="attribute">overflow</span>: hidden; <span class="comment">/* 触发BFC */</span></div><div class="line">  *zoom: 1; /* IE6 使用 zoom: 1 触发 hasLayout */</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>DEMO5</code>：<a href="https://ihapboy.github.io/front-end-lab/css-multi-column-layout/2-column-layout/float-overflow.html" target="_blank" rel="noopener">浮动法改进版二 float + overflow 两栏布局</a></p>
+<p><code>DEMO5</code>：<a href="https://ihapboy.github.io/front-end-lab/css-multi-column-layout/2-column-layout/float-overflow.html" target="_blank" rel="external">浮动法改进版二 float + overflow 两栏布局</a></p>
 <p><strong>特点：</strong>1. 在不修改 <code>HTML</code> 的情况下，只需要修改 CSS 即可<code>支持任意调整列顺序</code>。2. 设置简单，基于 BFC。<br><strong>缺陷：</strong>1. <code>不支持主内容优先显示</code>。2. <code>overflow: hidden</code> 会影响主内容栏滚动条。</p>
 <h2 id="弹性盒子法-Flexbox-布局"><a href="#弹性盒子法-Flexbox-布局" class="headerlink" title="弹性盒子法 Flexbox 布局"></a>弹性盒子法 Flexbox 布局</h2><h3 id="HTML-4"><a href="#HTML-4" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hd"</span>&gt;</span>Header<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bd"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aside"</span>&gt;</span>侧边栏 固定宽度<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span>主内容栏 自适应宽度<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ft"</span>&gt;</span>Footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="CSS-4"><a href="#CSS-4" class="headerlink" title="CSS"></a>CSS</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.bd</span> &#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.aside</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">  <span class="attribute">margin-right</span>: <span class="number">10px</span>; <span class="comment">/* 10px 列间隙 */</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.main</span> &#123;</div><div class="line">  <span class="attribute">flex</span>: <span class="number">1</span>; <span class="comment">/* 展开适应宽度 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>DEMO6</code>：<a href="https://ihapboy.github.io/front-end-lab/css-multi-column-layout/2-column-layout/flex.html" target="_blank" rel="noopener">弹性盒子法 Flexbox 布局 两栏布局</a></p>
+<p><code>DEMO6</code>：<a href="https://ihapboy.github.io/front-end-lab/css-multi-column-layout/2-column-layout/flex.html" target="_blank" rel="external">弹性盒子法 Flexbox 布局 两栏布局</a></p>
 <p><strong>特点：</strong>1. 在不修改 <code>HTML</code> 的情况下，只需要修改 CSS 即可<code>支持任意调整列顺序</code>（使用 <code>order</code> 属性）。2. <code>支持主内容优先显示</code>，只需将主内容的 <code>HTML</code> 放置在前即可。<br><strong>缺陷：</strong>不兼容 IE &lt; 11<br><strong>结论：</strong>推荐使用该方法，除了对IE兼容性较差外没有其他明显缺陷。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上为目前主流的两栏布局方法，在不需要兼容 IE &lt; 11 的情况下，推荐使用 <code>弹性盒子法 Flexbox 布局</code> 方法，其次推荐 <code>浮动法改进版一 float + margin + wrap 双标签</code> 方法。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="http://blog.doyoe.com/2013/12/31/css/margin%E7%B3%BB%E5%88%97%E4%B9%8B%E5%B8%83%E5%B1%80%E7%AF%87/" target="_blank" rel="external">margin系列之布局篇 - CSS探索之旅</a><br><a href="http://blog.guowenfh.com/2016/01/10/css-MultiColumn-layout/" target="_blank" rel="external">CSS多列布局 - 三省吾身丶丶</a></p>
 
       
     </div>
@@ -438,16 +414,19 @@
 
 
           
-  <div class="comments" id="comments">
-    
+
+  
+    <div class="comments" id="comments">
       <div id="disqus_thread">
         <noscript>
           Please enable JavaScript to view the
           <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
         </noscript>
       </div>
-    
-  </div>
+    </div>
+
+  
+
 
 
         </div>
@@ -470,90 +449,91 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          
-            <img class="site-author-image" itemprop="image"
-              src="/images/avatar.jpg"
-              alt="HaPBoy" />
-          
-            <p class="site-author-name" itemprop="name">HaPBoy</p>
-            <p class="site-description motion-element" itemprop="description"></p>
-        </div>
-
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <a href="/archives/">
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="HaPBoy" />
             
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">日志</span>
+              <p class="site-author-name" itemprop="name">HaPBoy</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
               </a>
             </div>
           
 
-          
-
-          
+          <div class="links-of-author motion-element">
             
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/iHaPBoy" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:ihapboy@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
             
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">标签</span>
-              
-            </div>
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
           </div>
-        
 
-        <div class="links-of-author motion-element">
           
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/iHaPBoy" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>GitHub</a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="mailto:ihapboy@gmail.com" target="_blank" title="E-Mail">
-                  
-                    <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-              </span>
-            
           
+
+          
+          
+
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -566,7 +546,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#绝对定位法-absolute-margin"><span class="nav-number">1.</span> <span class="nav-text">绝对定位法 absolute + margin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML"><span class="nav-number">1.1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS"><span class="nav-number">1.2.</span> <span class="nav-text">CSS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮动法-float-margin"><span class="nav-number">2.</span> <span class="nav-text">浮动法 float + margin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-1"><span class="nav-number">2.1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-1"><span class="nav-number">2.2.</span> <span class="nav-text">CSS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮动法改进版一-float-margin-wrap-双标签"><span class="nav-number">3.</span> <span class="nav-text">浮动法改进版一 float + margin + wrap 双标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-2"><span class="nav-number">3.1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-2"><span class="nav-number">3.2.</span> <span class="nav-text">CSS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮动法改进版二-float-overflow"><span class="nav-number">4.</span> <span class="nav-text">浮动法改进版二 float + overflow</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-3"><span class="nav-number">4.1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-3"><span class="nav-number">4.2.</span> <span class="nav-text">CSS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#弹性盒子法-Flexbox-布局"><span class="nav-number">5.</span> <span class="nav-text">弹性盒子法 Flexbox 布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-4"><span class="nav-number">5.1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-4"><span class="nav-number">5.2.</span> <span class="nav-text">CSS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#绝对定位法-absolute-margin"><span class="nav-number">1.</span> <span class="nav-text">绝对定位法 absolute + margin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML"><span class="nav-number">1.1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS"><span class="nav-number">1.2.</span> <span class="nav-text">CSS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮动法-float-margin"><span class="nav-number">2.</span> <span class="nav-text">浮动法 float + margin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-1"><span class="nav-number">2.1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-1"><span class="nav-number">2.2.</span> <span class="nav-text">CSS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮动法改进版一-float-margin-wrap-双标签"><span class="nav-number">3.</span> <span class="nav-text">浮动法改进版一 float + margin + wrap 双标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-2"><span class="nav-number">3.1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-2"><span class="nav-number">3.2.</span> <span class="nav-text">CSS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮动法改进版二-float-overflow"><span class="nav-number">4.</span> <span class="nav-text">浮动法改进版二 float + overflow</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-3"><span class="nav-number">4.1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-3"><span class="nav-number">4.2.</span> <span class="nav-text">CSS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#弹性盒子法-Flexbox-布局"><span class="nav-number">5.</span> <span class="nav-text">弹性盒子法 Flexbox 布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-4"><span class="nav-number">5.1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-4"><span class="nav-number">5.2.</span> <span class="nav-text">CSS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">7.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
             
 
           </div>
@@ -586,12 +566,9 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">HaPBoy</span>
 
@@ -599,11 +576,17 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
 
   <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.2</div>
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
 
 
         
@@ -623,6 +606,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -657,50 +642,58 @@
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
 
   
   
-
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
 
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -749,6 +742,10 @@
 
 
 
+
+
+
+
   
 
 
@@ -759,6 +756,9 @@
 
   
 
+  
+
+  
   
 
   
